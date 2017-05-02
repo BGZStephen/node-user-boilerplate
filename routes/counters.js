@@ -21,4 +21,51 @@ router.post("/create", (req, res, next) => {
   })
 })
 
+// delete all counters
+router.post("/deleteAll", (req, res, next) => {
+  let counterObject = {}
+
+  Counter.deleteAll(counterObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: "All Counters deleted"})
+    } else {
+      res.json({success: false, message: "Counter deletion failed"})
+    }
+  })
+})
+
+// delete one counter
+router.post("/deleteOne", (req, res, next) => {
+  let counterObject = {
+    name: req.body.name
+  }
+
+  Counter.deleteOne(counterObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: "Counter deleted"})
+    } else {
+      res.json({success: false, message: "Counter deletion failed"})
+    }
+  })
+})
+
+// FUNCTION FOR TESTING ONLY, INCREMENTING WILL OCCUR FROM USER ROUTE CALLS IN PROD
+router.post("/increment", (req, res, next) => {
+  let counterObject = {
+    name: req.body.name,
+    count: req.body.count
+  }
+
+  Counter.increment(counterObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: "Counter incremented"})
+    } else {
+      res.json({success: false, message: "Counter increment failed "})
+    }
+  })
+})
+
 module.exports = router;

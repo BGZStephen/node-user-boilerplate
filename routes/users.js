@@ -39,7 +39,7 @@ router.post("/register", (req, res, next) => {
                 if(callback) {
                   // set the new counter value for incrementing
                   let newCounterValue = newUser.userId + 1
-                  Counter.increment({userId: newCounterValue }, (err, callback) => {
+                  Counter.increment({name: "userId", count: newCounterValue }, (err, callback) => {
                     if(err) throw(err)
                     if(callback) {
                       res.json({success: true, message: "Registration successful"})
