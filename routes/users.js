@@ -45,6 +45,41 @@ router.post("/create", (req, res, next) => {
   })
 })
 
+router.post("/deleteAll", (req, res, next) => {
+  let userObject = {}
+
+  User.deleteAll(userObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback == []) {
+      res.json({success: true, message: "All users deleted"})
+    } else {
+      res.json({success: false, message: "Something went wrong, users not deleted"})
+    }
+  })
+})
+
+router.post("/deleteOne", (req, res, next) => {
+  let userObject = {
+    userId: req.body.userId
+  }
+
+  User.getById({userId: userObject.userId}, (err, callback) => {
+    if(err) throw(err)
+    if(callback != null) {
+      User.deleteOne(userObject, (err, callback) => {
+        if(err) throw(err)
+        if(callback == null) {
+          res.json({success: true, message: "User deleted"})
+        } else {
+          res.json({success: false, message: "Something went wrong, user not deleted"})
+        }
+      })
+    } else {
+      res.json({success: false, message: "UserID not found"})
+    }
+  })
+})
+
 // get by email
 
 router.post("/getByEmail", (req, res, next) => {
@@ -100,18 +135,18 @@ router.post("/register", (req, res, next) => {
   Counter.getOne(counter, (err, callback) => {
     if(err) throw(err)
     if(callback) {
-      newUser.userId = callback.userId // assign unique id to new user
+      newUser.userId = callback.count // assign unique id to new user
       // check if username already exists
-      User.findByUsername({username: newUser.username}, (err, callback) => {
+      User.getByUsername({username: newUser.username}, (err, callback) => {
         if(err) throw(err)
-        if(callback.results != null) {
+        if(callback != null) {
           res.json({success: false, message: "Username already exists"})
         } else {
           // check if email already exists
-          User.findByEmail({email: newUser.email}, (err, callback) => {
+          User.getByEmail({email: newUser.email}, (err, callback) => {
             if(err) throw(err)
-            if(callback.results !=null) {
-              res.json({success: false, message: "Username already exists"})
+            if(callback !=null) {
+              res.json({success: false, message: "Email already exists"})
             } else {
               // send newUser object to registerUser function (check Models), password will be hashed, user stored on MongoDB and callback returned if successful
               User.create(newUser, (err, callback) => {

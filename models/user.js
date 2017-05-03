@@ -29,12 +29,24 @@ const UserSchema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', UserSchema)
 
+module.exports.deleteAll = function(userObject, callback){
+  User.find(userObject, callback).remove().exec()
+}
+
+module.exports.deleteOne = function(userObject, callback){
+  User.findOne(userObject, callback).remove().exec()
+}
+
 module.exports.getByEmail = function(userObject, callback){
-  User.find(userObject, callback)
+  User.findOne(userObject, callback)
+}
+
+module.exports.getById = function(userObject, callback) {
+  User.findOne(userObject, callback)
 }
 
 module.exports.getByUsername = function(userObject, callback) {
-  User.find(userObject, callback)
+  User.findOne(userObject, callback)
 }
 
 module.exports.create = function(userObject, callback) {
