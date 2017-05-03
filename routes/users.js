@@ -174,4 +174,41 @@ router.post("/register", (req, res, next) => {
   })
 })
 
+// update
+router.post("/update", (req, res, next) => {
+
+  // newUser object to submit
+  let userObject = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username,
+    email: req.body.email,
+    userId: req.body.userId
+  }
+
+  // check username to make sure it doesn't already exist except in the case of it being the updaters current username
+  User.getByUsername({username: userObject.username}, (err, callback) => {
+    if(err) throw(err)
+    if(callback == null || callback.userId == userObject.userId) {
+      User.getByEmail({email: userObject.email}, (err, callback) => {
+        if(err) throw(err)
+        if(callback == null || callback.userId == userObject.userId) {
+          User.updateUser(userObject, (err, callback) => {
+            if(err) throw(err)
+            if(callback) {
+              res.json({success: true, message: "User update successful"})
+            } else {
+              res.json({success: false, message: "Something went wrong, update failed"})
+            }
+          })
+        } else {
+          res.json({success: false, message: "Email already exists"})
+        }
+      })
+    } else {
+      res.json({success: false, message: "Username already exists"})
+    }
+  })
+})
+
 module.exports = router;

@@ -19,7 +19,10 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   userId: {
-    type: Number
+    type: Number,
+    required: true,
+    unique: true,
+    index: true
   },
   username: {
     type: String,
@@ -28,6 +31,15 @@ const UserSchema = mongoose.Schema({
 });
 
 const User = module.exports = mongoose.model('User', UserSchema)
+
+module.exports.create = function(userObject, callback) {
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(userObject.password, salt, function(err, hash) {
+        userObject.password = hash
+        userObject.save(callback)
+    });
+  });
+}
 
 module.exports.deleteAll = function(userObject, callback){
   User.find(userObject, callback).remove().exec()
@@ -49,6 +61,6 @@ module.exports.getByUsername = function(userObject, callback) {
   User.findOne(userObject, callback)
 }
 
-module.exports.create = function(userObject, callback) {
-  userObject.save(callback)
+module.exports.updateUser = function(userObject, callback) {
+  User.update({'userId': userObject.userId}, userObject, callback)
 }
