@@ -2,36 +2,39 @@
   <div class="forms-container">
     <h1 class="app-header">AUTH APP</h1>
     <ul class="forms-selector-list">
-      <li class="forms-selector-option">Login</li>
-      <li class="forms-selector-option">Register</li>
+      <li class="forms-selector-option forms-selector-option-active" (click)="toggleForm(0)">Login</li>
+      <li class="forms-selector-option" (click)="toggleForm(1)">Register</li>
     </ul>
     <div class="forms-output-container">
-      <div class="login-form-container">
+      <div class="form-container form-container-visible">
         <h2 class="form-header">Head on in.</h2>
         <form class="login-form">
           <div class="form-row">
-            <input type="text" class="form-input">
+            <input type="text" class="form-input" placeholder="Email Address">
           </div>
           <div class="form-row">
-            <input type="password" class="form-input">
+            <input type="password" class="form-input" placeholder="Passwrd">
           </div>
           <div class="form-row">
             <input type="submit" class="form-submit" value="LOG IN">
           </div>
         </form>
       </div>
-      <div class="register-form-container">
+      <div class="form-container">
         <h2 class="form-header">Sign up to get access.</h2>
         <form class="register-form">
           <div class="form-row">
-            <input type="text" class="form-input first-name-input">
-            <input type="text" class="form-input last-name-input">
+            <input type="text" class="form-input first-name-input" placeholder="First Name">
+            <input type="text" class="form-input last-name-input" placeholder="Last Name">
           </div>
           <div class="form-row">
-            <input type="text" class="form-input">
+            <input type="text" class="form-input" placeholder="Username">
           </div>
           <div class="form-row">
-            <input type="text" class="form-input last-name-input">
+            <input type="text" class="form-input" placeholder="Email">
+          </div>
+          <div class="form-row">
+            <input type="password" class="form-input" placeholder="Password">
           </div>
           <div class="form-row">
             <input type="submit" class="form-submit" value="GET STARTED">

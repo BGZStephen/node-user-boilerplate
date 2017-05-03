@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+  }
+
+  toggleForm(formIndex) {
+    let forms = document.getElementsByClassName("form-container")
+    let options = document.getElementsByClassName("forms-selector-option")
+    for(let i = 0; i < forms.length; i++) {
+      forms[i].classList.remove("form-container-visible")
+      options[i].classList.remove("forms-selector-option-active")
+    }
+    forms[formIndex].classList.add("form-container-visible")
+    options[formIndex].classList.add("forms-selector-option-active")
   }
 
 }

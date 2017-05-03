@@ -1,0 +1,145 @@
+.login-register-container {
+  background: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vh;
+  padding-top: 20px;
+}
+
+.forms-container {
+  align-self: flex-start;
+  background: #33414e;
+  border-radius: 5px;
+  color: white;
+  max-width: 100%;
+  padding: 20px;
+  position:relative;
+  -webkit-box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
+     -moz-box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
+          box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
+  width: 525px;
+}
+
+.form-container {
+  display: none;
+}
+
+.form-container-visible {
+  display: block;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.forms-selector-list {
+  display: flex;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.forms-selector-option {
+  font-size: 1.2em;
+  padding: 12px 0;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 50%;
+}
+
+.forms-selector-option-active {
+  background: #e34724;
+  font-weight: bold;
+}
+
+.forms-selector-option:hover {
+  background: #e34724;
+  font-weight: bold;
+}
+
+.forms-output-container {
+
+}
+
+.form-header {
+  font-weight: lighter;
+  font-size: 1.8em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-form-container {
+
+}
+
+.login-form {
+
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-input {
+  background: none;
+  border: 1px solid #e8e8e8;
+  color: #e8e8e8;
+  font-size: 1.4em;
+  margin: 10px 0;
+  outline: 0;
+  padding: 3px 6px;
+  width: 100%;
+}
+
+.form-input::placeholder {
+  color: #e8e8e8;
+}
+
+.form-input:active,
+.form-input:target,
+.form-input:focus {
+  border: 2px solid #e34724;
+  color: #e34724;
+  margin: 9px 0;
+  padding: 3px 5px;
+}
+
+.form-submit {
+  background: #e34724;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  width: 100%;
+}
+
+.register-form-container {
+
+}
+
+.register-form {
+
+}
+
+.first-name-input,
+.last-name-input {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+
+  .form-header {
+    margin: 15px 0 5px 0;
+  }
+
+  .first-name-input,
+  .last-name-input {
+    width: calc((100% / 2) - 10px)
+  }
+}
