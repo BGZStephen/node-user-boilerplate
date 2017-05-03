@@ -10,8 +10,7 @@ const CounterSchema = mongoose.Schema({
     index: true
   },
   count: {
-    type: Number,
-    unique: true
+    type: Number
   }
 });
 
@@ -26,7 +25,15 @@ module.exports.deleteAll = function(counterObject, callback){
 }
 
 module.exports.deleteOne = function(counterObject, callback){
-  Counter.findOne({name: counterObject.name}, callback).remove().exec()
+  Counter.find({name: counterObject.name}, callback).remove().exec()
+}
+
+module.exports.getAll = function(counterObject, callback){
+  Counter.find(counterObject, callback)
+}
+
+module.exports.getOne = function(counterObject, callback){
+  Counter.findOne({name: counterObject.name}, callback)
 }
 
 module.exports.increment = function(counterObject, callback){

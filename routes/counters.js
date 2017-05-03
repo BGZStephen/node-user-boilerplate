@@ -46,7 +46,37 @@ router.post("/deleteOne", (req, res, next) => {
     if(callback) {
       res.json({success: true, message: "Counter deleted"})
     } else {
-      res.json({success: false, message: "Counter deletion failed"})
+      res.json({success: false, message: callback})
+    }
+  })
+})
+
+// get all counters
+router.post("/getAll", (req, res, next) => {
+  let counterObject = {}
+
+  Counter.getAll(counterObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: callback})
+    } else {
+      res.json({success: false, message: "Failed to get counters"})
+    }
+  })
+})
+
+// get one counter
+router.post("/getOne", (req, res, next) => {
+  let counterObject = {
+    name: req.body.name
+  }
+
+  Counter.getOne(counterObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: callback})
+    } else {
+      res.json({success: false, message: "Failed to get counter"})
     }
   })
 })

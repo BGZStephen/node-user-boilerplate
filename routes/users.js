@@ -15,9 +15,14 @@ router.post("/register", (req, res, next) => {
     email: req.body.email,
     password: req.body.password
   })
+  
+  // define counter to be called for assigning unique userID's
+  let counter = {
+    name: "userId"
+  }
 
   // assign a unique ID provided by the counter
-  Counter.getCounter("userId", (err, callback) => {
+  Counter.getCounter(counter, (err, callback) => {
     if(err) throw(err)
     if(callback) {
       newUser.userId = callback.userId // assign unique id to new user
