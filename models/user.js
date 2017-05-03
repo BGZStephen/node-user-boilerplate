@@ -61,6 +61,22 @@ module.exports.getByUsername = function(userObject, callback) {
   User.findOne(userObject, callback)
 }
 
+module.exports.comparePassword = function(userObject, callback) {
+  bcrypt.compare(userObject.queryPassword, userObject.storedHash, function(err, isMatch) {
+    if(err) throw(err)
+    callback(null, isMatch)
+  });
+}
+
+module.exports.updatePassword = function(userObject, callback) {
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(userObject.newPassword, salt, function(err, hash) {
+        userObject.password = hash
+        User.update({userId: userObject.userId},{password: userObject.password}, callback)
+    });
+  });
+}
+
 module.exports.updateUser = function(userObject, callback) {
   User.update({'userId': userObject.userId}, userObject, callback)
 }

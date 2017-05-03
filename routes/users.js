@@ -211,4 +211,40 @@ router.post("/update", (req, res, next) => {
   })
 })
 
+// update password
+router.post("/updatepassword", (req, res, next) => {
+
+  // newUser object to submit
+  let userObject = {
+    userId: req.body.userId,
+    queryPassword: req.body.currentPassword,
+    newPassword: req.body.newPassword
+  }
+
+  User.getById({userId: userObject.userId}, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      userObject.storedHash = callback.password
+      console.log(userObject.storedHash)
+      User.comparePassword(userObject, (err, isMatch) => {
+        if(err) throw(err)
+        if(isMatch) {
+          User.updatePassword(userObject, (err, callback) => {
+            if(err) throw(err)
+            if(callback) {
+              res.json({success: true, message: "Password Updated"})
+            } else {
+              res.json({success: false, message: "Failed to update password"})
+            }
+          })
+        } else {
+          res.json({success: false, message: "Passwords didn't match"})
+        }
+      })
+    } else {
+      res.json({success: false, message: "Failed to retrieve user"})
+    }
+  })
+})
+
 module.exports = router;
