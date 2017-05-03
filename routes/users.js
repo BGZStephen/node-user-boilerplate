@@ -5,6 +5,34 @@ const config = require('../config/database');
 const User = require('../models/user');
 const Counter = require('../models/counter');
 
+// update password
+router.post("/authenticate", (req, res, next) => {
+
+  // newUser object to submit
+  let userObject = {
+    username: req.body.username,
+    queryPassword: req.body.password,
+  }
+
+  User.getByUsername({username: userObject.username}, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      userObject.storedHash = callback.password
+      console.log(userObject.storedHash)
+      User.comparePassword(userObject, (err, isMatch) => {
+        if(err) throw(err)
+        if(isMatch) {
+          res.json({success: true, message: "Authentication successful"})
+        } else {
+          res.json({success: false, message: "Incorrect username or password"})
+        }
+      })
+    } else {
+      res.json({success: false, message: "Incorrect username or password"})
+    }
+  })
+})
+
 router.post("/create", (req, res, next) => {
 
   // newUser object to submit
