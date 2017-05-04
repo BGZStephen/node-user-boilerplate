@@ -5,22 +5,20 @@ import { HttpModule } from '@angular/http';
 import { router } from "./app.routes"
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginRegisterComponent } from './components/login-register/login-register.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { AppNavigationComponent } from './components/app-navigation/app-navigation.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HomeDisplayComponent } from './components/home-display/home-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginRegisterComponent,
-    NavbarComponent,
     FooterComponent,
-    AdminComponent,
-    AppNavigationComponent
+    NavigationComponent,
+    HomeComponent,
+    HomeDisplayComponent
   ],
   imports: [
     BrowserModule,

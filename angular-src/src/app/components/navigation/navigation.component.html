@@ -51,6 +51,21 @@
             </li>
           </ul>
         </li>
+        <li class="top-level-item" (click)="setActiveSubMenu(1)">
+          <div class="top-level-item-content">
+            <a class="fa fa-lock"></a>
+            <p class="top-level-item-header">Admin</p>
+            <a class="fa fa-caret-down"></a>
+          </div>
+          <ul class="second-level-menu" [ngStyle]="subMenuStyle(1)">
+            <li class="second-level-item">
+              <div class="second-level-item-content">
+                <a class="fa fa-database"></a>
+                <p class="second-level-item-header">Database</p>
+              </div>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

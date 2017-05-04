@@ -1,5 +1,5 @@
 .app-navigation-container {
-  width: 100vw;
+  width: 100%;
 }
 
 .app-navigation {
@@ -115,8 +115,12 @@
   width: 100%;
 }
 
-.fa-user {
+.top-level-item-content .fa:first-of-type {
   margin-right: 10px;
+}
+
+.top-level-item-content:hover > .fa:first-child {
+  color: #f49c22;
 }
 
 .fa-caret-down {
@@ -182,10 +186,6 @@
 }
 
 @media (min-width: 1024px) {
-  .app-navigation-container {
-    width: 300px;
-  }
-
   .menu-toggle {
     display: none;
   }
