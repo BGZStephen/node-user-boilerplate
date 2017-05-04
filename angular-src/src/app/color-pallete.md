@@ -1,6 +1,6 @@
 navbar-background-blue: #33414e
 navbar-background-orange: #e34724
-left-nav-blue: #dfdfdf
+left-nav-blue: #313e4b
 app-main-background: #e8e8e8
 app-location-bar: #dfdfdf
 icon / link hover : #f49c22
