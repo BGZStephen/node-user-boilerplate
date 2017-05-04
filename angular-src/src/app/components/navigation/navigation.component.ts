@@ -7,12 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // on page load set menu visibility
+    this.setMenuStyle()
+  }
+
+  // main visibility setting for menu
+  activeMenu: boolean = false;
 
   // set active submenu used in conjunction with ngstyle to toggle visible menu
   activeSubMenu: number = -1;
 
   ngOnInit() {
+  }
+
+  menuStyle() {
+    if(this.activeMenu == true) {
+      return {"display": "block"}
+    } else {
+      return {"display": "none"}
+    }
+  }
+
+  setMenuStyle(resize?) {
+    if(resize && screen.width > 1024) {
+      this.activeMenu = true;
+    } else if (resize && screen.width < 1024) {
+      this.activeMenu = false;
+    } else if (screen.width < 1024){
+      this.activeMenu = !this.activeMenu
+    } else {
+      this.activeMenu = true;
+    }
   }
 
   setActiveSubMenu(menuIndex) {

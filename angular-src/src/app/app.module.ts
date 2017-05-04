@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeDisplayComponent } from './components/home-display/home-display.component';
+import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeDisplayComponent } from './components/home-display/home-display.com
     FooterComponent,
     NavigationComponent,
     HomeComponent,
-    HomeDisplayComponent
+    HomeDisplayComponent,
+    NotificationBarComponent
   ],
   imports: [
     BrowserModule,
