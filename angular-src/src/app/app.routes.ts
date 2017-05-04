@@ -4,6 +4,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 
 const APP_ROUTES: Routes = [
   {path: "", component: LoginRegisterComponent},
+  {path: "home", component: HomeComponent}
 ]
 
 export const router = RouterModule.forRoot(APP_ROUTES)
