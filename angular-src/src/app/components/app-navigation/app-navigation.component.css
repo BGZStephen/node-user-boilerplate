@@ -1,9 +1,9 @@
 .app-navigation-container {
-  width: 100%;
+  width: 100vw;
 }
 
 .app-navigation {
-  background: #2b3742;
+  background: #33414e;
   min-height: 100vh;
   width: 100%;
 }
@@ -140,6 +140,8 @@
   background: #273541;
   list-style: none;
   /*display: none;*/
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .second-level-item {

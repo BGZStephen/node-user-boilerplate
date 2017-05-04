@@ -18,13 +18,13 @@
     <div class="menu-container">
       <p class="menu-header">Navigation</p>
       <ul class="top-level-menu">
-        <li class="top-level-item">
+        <li class="top-level-item" (click)="setActiveSubMenu(0)">
           <div class="top-level-item-content">
             <a class="fa fa-user"></a>
             <p class="top-level-item-header">Users</p>
             <a class="fa fa-caret-down"></a>
           </div>
-          <ul class="second-level-menu">
+          <ul class="second-level-menu" [ngStyle]="subMenuStyle(0)">
             <li class="second-level-item">
               <div class="second-level-item-content">
                 <a class="fa fa-cog"></a>
