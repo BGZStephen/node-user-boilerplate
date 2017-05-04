@@ -1,7 +1,7 @@
 <div class="app-navigation-container">
   <div class="header-container">
     <h2 class="header-logo">AUTH APP</h2>
-    <a class="fa fa-bars menu-toggle" (click)="setMenuStyle()"></a>
+    <a class="fa fa-bars menu-toggle" (click)="activeMenu = !activeMenu"></a>
   </div>
   <div class="app-navigation" (window:resize)="setMenuStyle('resize')" [ngStyle]="menuStyle()">
     <div class="profile-container">

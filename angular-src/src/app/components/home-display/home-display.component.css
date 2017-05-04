@@ -1,0 +1,10 @@
+.widgets-container {
+  background: #e8e8e8;
+  padding: 10px;
+  width: 100%;
+  min-height: calc(100% -50px)
+}
+
+.widgets-row {
+
+}

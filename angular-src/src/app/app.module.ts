@@ -11,6 +11,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HomeComponent } from './pages/home/home.component';
 import { HomeDisplayComponent } from './components/home-display/home-display.component';
 import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
+import { UsersWidgetComponent } from './widgets/users-widget/users-widget.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotificationBarComponent } from './components/notification-bar/notifica
     NavigationComponent,
     HomeComponent,
     HomeDisplayComponent,
-    NotificationBarComponent
+    NotificationBarComponent,
+    UsersWidgetComponent
   ],
   imports: [
     BrowserModule,
