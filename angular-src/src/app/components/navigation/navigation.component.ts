@@ -34,6 +34,8 @@ export class NavigationComponent implements OnInit {
       this.activeMenu = true;
     } else if (resize && screen.width < 1024) {
       this.activeMenu = false;
+    } else if (screen.width > 1024){
+      this.activeMenu = true;
     } else {
       this.activeMenu = false;
     }

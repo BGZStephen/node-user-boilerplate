@@ -1,0 +1,23 @@
+.app-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+.app-navigation-container {
+  width: 100%;
+}
+
+.app-output-container {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .app-navigation-container {
+    width: 300px;
+  }
+
+  .app-output-container {
+    width: calc(100% - 300px);
+  }
+}

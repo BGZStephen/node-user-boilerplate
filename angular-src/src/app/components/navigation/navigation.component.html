@@ -18,15 +18,21 @@
     <div class="menu-container">
       <p class="menu-header">Navigation</p>
       <ul class="top-level-menu">
-        <li class="top-level-item" (click)="setActiveSubMenu(0)">
-          <div class="top-level-item-content">
+        <li class="top-level-item">
+          <div class="top-level-item-content" [routerLink]="['/home']">
+            <a class="fa fa-home"></a>
+            <p class="top-level-item-header">Home</p>
+          </div>
+        </li>
+        <li class="top-level-item">
+          <div class="top-level-item-content" (click)="setActiveSubMenu(0)">
             <a class="fa fa-users"></a>
             <p class="top-level-item-header">Users</p>
             <a class="fa fa-caret-down"></a>
           </div>
           <ul class="second-level-menu" [ngStyle]="subMenuStyle(0)">
             <li class="second-level-item">
-              <div class="second-level-item-content">
+              <div class="second-level-item-content" [routerLink]="['/users/manage']">
                 <a class="fa fa-cog"></a>
                 <p class="second-level-item-header">Manage</p>
               </div>
