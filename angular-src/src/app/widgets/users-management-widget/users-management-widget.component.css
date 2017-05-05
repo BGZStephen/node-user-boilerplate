@@ -1,0 +1,99 @@
+.widget-container {
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.widget-header {
+  color: #33414e
+}
+
+.widget-header-seperator {
+  border-top: 2px solid #33414e;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.user-management-table {
+  border-spacing: 0;
+  border-bottom: 2px solid #808E9B;
+  max-width: 100%;
+  width: 100%;
+}
+
+td {
+  padding: 5px 10px;
+}
+
+.primary-row {
+  background: #33414e;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.primary-row td {
+  border-right: 1px solid #808E9B;
+  border-left: 1px solid #808E9B;
+  font-weight: bold;
+}
+
+.primary-row td:first-of-type {
+  border-left: 2px solid #33414e;
+}
+
+.primary-row td:last-of-type {
+  border-right: 2px solid #33414e;
+}
+
+.output-row td {
+  border-right: 1px solid #808E9B;
+  border-left: 1px solid #808E9B;
+}
+
+.output-row td:first-of-type {
+  border-left: 2px solid #808E9B;
+}
+
+.output-row td:last-of-type {
+  border-right: 2px solid #808E9B;
+}
+
+.output-row:nth-of-type(even) {
+  background: #E6F4FF;
+}
+
+.output-row:nth-of-type(odd) {
+  background: #CCDAE7;
+}
+
+.email-header,
+.password-header,
+.email-output,
+.change-password {
+  display: none;
+}
+
+.change-password {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+
+  .widget-header-seperator {
+    width: 250px;
+  }
+
+  .primary-row td {
+    font-size: 1.4em;
+  }
+
+  .output-row td {
+    font-size: 1.2em;
+  }
+
+  .email-header,
+  .password-header,
+  .email-output,
+  .change-password {
+    display: table-cell;
+  }
+}

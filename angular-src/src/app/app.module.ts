@@ -13,6 +13,7 @@ import { HomeDisplayComponent } from './components/home-display/home-display.com
 import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
 import { UsersCountWidgetComponent } from './widgets/users-count-widget/users-count-widget.component';
 import { UsersManageComponent } from './pages/users/users-manage.component';
+import { UsersManagementWidgetComponent } from './widgets/users-management-widget/users-management-widget.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UsersManageComponent } from './pages/users/users-manage.component';
     HomeDisplayComponent,
     NotificationBarComponent,
     UsersCountWidgetComponent,
-    UsersManageComponent
+    UsersManageComponent,
+    UsersManagementWidgetComponent
   ],
   imports: [
     BrowserModule,
