@@ -1,0 +1,70 @@
+<div class="widget-container">
+  <h2 class="widget-header">User Management</h2>
+  <hr class="widget-header-seperator">
+  <div class="user-profile-container">
+    <div class="user-profile-row">
+      <div class="user-profile-title-container">
+        <p class="user-profile-title">First Name:</p>
+      </div>
+      <div class="user-profile-output-container" [ngSwitch]="editMode">
+        <p class="user-profile-output" *ngSwitchCase="false">Stephen</p>
+        <input type="text" class="user-profile-input" placeholder="Stephen" *ngSwitchCase="true">
+      </div>
+      <div class="user-profile-edit-container" [ngSwitch]="editMode">
+        <a class="fa fa-pencil" (click)="toggleEdit()" *ngSwitchCase="false"></a>
+        <a class="fa fa-save" (click)="toggleEdit()" *ngSwitchCase="true"></a>
+      </div>
+    </div>
+    <div class="user-profile-row">
+      <div class="user-profile-title-container">
+        <p class="user-profile-title">Last Name:</p>
+      </div>
+      <div class="user-profile-output-container" [ngSwitch]="editMode">
+        <p class="user-profile-output" *ngSwitchCase="false">Wright</p>
+        <input type="text" class="user-profile-input" placeholder="Wright" *ngSwitchCase="true">
+      </div>
+      <div class="user-profile-edit-container" [ngSwitch]="editMode">
+        <a class="fa fa-pencil" (click)="toggleEdit()" *ngSwitchCase="false"></a>
+        <a class="fa fa-save" (click)="toggleEdit()" *ngSwitchCase="true"></a>
+      </div>
+    </div>
+    <div class="user-profile-row">
+      <div class="user-profile-title-container">
+        <p class="user-profile-title">Username:</p>
+      </div>
+      <div class="user-profile-output-container" [ngSwitch]="editMode">
+        <p class="user-profile-output" *ngSwitchCase="false">StephenWright</p>
+        <input type="text" class="user-profile-input" placeholder="StephenWright" *ngSwitchCase="true">
+      </div>
+      <div class="user-profile-edit-container" [ngSwitch]="editMode">
+        <a class="fa fa-pencil" (click)="toggleEdit()" *ngSwitchCase="false"></a>
+        <a class="fa fa-save" (click)="toggleEdit()" *ngSwitchCase="true"></a>
+      </div>
+    </div>
+    <div class="user-profile-row">
+      <div class="user-profile-title-container">
+        <p class="user-profile-title">Email:</p>
+      </div>
+      <div class="user-profile-output-container" [ngSwitch]="editMode">
+        <p class="user-profile-output" *ngSwitchCase="false">stephen@test.com</p>
+        <input type="text" class="user-profile-input" placeholder="stephen@test.com" *ngSwitchCase="true">
+      </div>
+      <div class="user-profile-edit-container" [ngSwitch]="editMode">
+        <a class="fa fa-pencil" (click)="toggleEdit()" *ngSwitchCase="false"></a>
+        <a class="fa fa-save" (click)="toggleEdit()" *ngSwitchCase="true"></a>
+      </div>
+    </div>
+    <div class="user-profile-row">
+      <div class="user-profile-title-container">
+        <p class="user-profile-title">Password:</p>
+      </div>
+      <div class="user-profile-output-container" [ngSwitch]="editPasswordMode">
+        <p class="user-profile-output" *ngSwitchCase="false">******</p>
+        <input type="text" class="user-profile-input" placeholder="Password" *ngSwitchCase="true">
+      </div>
+      <div class="user-profile-edit-container" [ngSwitch]="editPasswordMode">
+        <a class="fa fa-pencil" (click)="togglePasswordEdit()" *ngSwitchCase="false"></a>
+        <a class="fa fa-save" (click)="togglePasswordEdit()" *ngSwitchCase="true"></a>
+      </div>
+    </div>
+</div>

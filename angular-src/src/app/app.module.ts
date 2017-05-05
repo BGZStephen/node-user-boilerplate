@@ -14,6 +14,8 @@ import { NotificationBarComponent } from './components/notification-bar/notifica
 import { UsersCountWidgetComponent } from './widgets/users-count-widget/users-count-widget.component';
 import { UsersManageComponent } from './pages/users/users-manage.component';
 import { UsersManagementWidgetComponent } from './widgets/users-management-widget/users-management-widget.component';
+import { UserIndividualWidgetComponent } from './widgets/user-individual-widget/user-individual-widget.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UsersManagementWidgetComponent } from './widgets/users-management-widge
     NotificationBarComponent,
     UsersCountWidgetComponent,
     UsersManageComponent,
-    UsersManagementWidgetComponent
+    UsersManagementWidgetComponent,
+    UserIndividualWidgetComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

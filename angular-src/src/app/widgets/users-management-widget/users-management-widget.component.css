@@ -47,6 +47,7 @@ td {
 .output-row td {
   border-right: 1px solid #808E9B;
   border-left: 1px solid #808E9B;
+  cursor: pointer;
 }
 
 .output-row td:first-of-type {
