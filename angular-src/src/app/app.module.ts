@@ -16,6 +16,8 @@ import { UsersManageComponent } from './pages/users/users-manage.component';
 import { UsersManagementWidgetComponent } from './widgets/users-management-widget/users-management-widget.component';
 import { UserIndividualWidgetComponent } from './widgets/user-individual-widget/user-individual-widget.component';
 import { UserComponent } from './pages/user/user.component';
+import { UserAddComponent } from './pages/user/user-add.component';
+import { UserAddWidgetComponent } from './widgets/user-add-widget/user-add-widget.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UserComponent } from './pages/user/user.component';
     UsersManageComponent,
     UsersManagementWidgetComponent,
     UserIndividualWidgetComponent,
-    UserComponent
+    UserComponent,
+    UserAddComponent,
+    UserAddWidgetComponent
   ],
   imports: [
     BrowserModule,
