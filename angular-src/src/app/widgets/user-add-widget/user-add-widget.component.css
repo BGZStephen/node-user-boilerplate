@@ -14,7 +14,6 @@
 }
 
 .user-profile-container {
-
 }
 
 .user-profile-row {
@@ -40,7 +39,7 @@
   color: #33414e;
   font-weight: bold;
   text-align: left;
-  width: 45%;
+  width: 55%;
 }
 
 .user-profile-input {
@@ -49,6 +48,7 @@
   font-size: 1em;
   margin-left: 10px;
   padding: 5px;
+  width: 100%;
 }
 
 .user-profile-actions-container {

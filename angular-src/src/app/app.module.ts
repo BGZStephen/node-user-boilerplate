@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { router } from "./app.routes"
+import { UsersApiService } from "./services/users-api.service"
 
 import { AppComponent } from './app.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
@@ -46,7 +47,7 @@ import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-
     HttpModule,
     router
   ],
-  providers: [],
+  providers: [UsersApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

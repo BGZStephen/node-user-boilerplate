@@ -7,7 +7,7 @@
         <p class="user-profile-title">First Name:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="Walter">
+        <input type="text" class="user-profile-input" placeholder="Walter" name="firstName" #firstName>
       </div>
     </div>
     <div class="user-profile-row">
@@ -15,7 +15,7 @@
         <p class="user-profile-title">Last Name:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="White">
+        <input type="text" class="user-profile-input" placeholder="White" name="lastName" #lastName>
       </div>
     </div>
     <div class="user-profile-row">
@@ -23,7 +23,7 @@
         <p class="user-profile-title">Username:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="Heisenberg">
+        <input type="text" class="user-profile-input" placeholder="Heisenberg" name="username" #username>
       </div>
     </div>
     <div class="user-profile-row">
@@ -31,7 +31,7 @@
         <p class="user-profile-title">Email:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="heisenberg@gmail.com">
+        <input type="text" class="user-profile-input" placeholder="heisenberg@gmail.com" name="email" #email>
       </div>
     </div>
     <div class="user-profile-row">
@@ -39,11 +39,11 @@
         <p class="user-profile-title">Password:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="**********">
+        <input type="password" class="user-profile-input" placeholder="**********" name="password" #password>
       </div>
     </div>
     <div class="user-profile-actions-container">
       <button class="user-profile-action-button cancel-button" [routerLink]="['/home']">Cancel</button>
-      <button class="user-profile-action-button save-button" [routerLink]="['/home']">Save</button>
+      <button class="user-profile-action-button save-button" (click)="addUser(firstName.value, lastName.value, username.value, email.value, password.value)">Save</button>
     </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersApiService } from "../../services/users-api.service"
+import "rxjs/Rx"
 
 @Component({
   selector: 'app-user-add-widget',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddWidgetComponent implements OnInit {
 
-  constructor() { }
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  password: string;
+
+  constructor(private usersApiService: UsersApiService) { }
 
   ngOnInit() {
   }
 
+  addUser(firstName, lastName, username, email, password) {
+    let userObject = {
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      email: email,
+      password: password
+    }
+    this.usersApiService.addUser(userObject)
+    .subscribe(res => {
+      console.log(res)
+    })
+  }
 }
