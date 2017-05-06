@@ -110,6 +110,21 @@ router.post("/deleteOne", (req, res, next) => {
 
 // get by email
 
+router.post("/getAll", (req, res, next) => {
+  let userObject = {}
+
+  User.getAll(userObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json(callback)
+    } else {
+      res.json({success: false, message: "Users not found (no users?)"})
+    }
+  })
+})
+
+// get by email
+
 router.post("/getByEmail", (req, res, next) => {
   let userObject = {
     email: req.body.email

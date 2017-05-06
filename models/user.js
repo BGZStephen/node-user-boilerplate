@@ -49,6 +49,10 @@ module.exports.deleteOne = function(userObject, callback){
   User.findOne(userObject, callback).remove().exec()
 }
 
+module.exports.getAll = function(userObject, callback){
+  User.find(userObject, callback)
+}
+
 module.exports.getByEmail = function(userObject, callback){
   User.findOne(userObject, callback)
 }
