@@ -1,7 +1,7 @@
 <div class="widget-container">
   <h2 class="widget-header">User Management</h2>
   <hr class="widget-header-seperator">
-  <table class="user-management-table">
+  <table class="user-management-table" *ngIf="users">
     <thead></thead>
     <tr class="primary-row">
       <td>First Name</td>
@@ -10,26 +10,12 @@
       <td class="email-header">Email</td>
       <td class="password-header">Password</td>
     </tr>
-    <tr class="output-row">
-      <td [routerLink]="['/user']">Stephen</td>
-      <td [routerLink]="['/user']">Wright</td>
-      <td [routerLink]="['/user']">StephenWright</td>
-      <td class="email-output" [routerLink]="['/user']">stephen@test.com</td>
+    <tr class="output-row" *ngFor="let user of users">
+      <td [routerLink]="['/user']">{{user.firstName}}</td>
+      <td [routerLink]="['/user']">{{user.lastName}}</td>
+      <td [routerLink]="['/user']">{{user.username}}</td>
+      <td class="email-output" [routerLink]="['/user']">{{user.email}}</td>
       <td class="change-password" [routerLink]="['/']"><a class="change-password-link">change</a></td>
-    </tr>
-    <tr class="output-row">
-      <td [routerLink]="['/user']">Lydia</td>
-      <td [routerLink]="['/user']">Wright</td>
-      <td [routerLink]="['/user']">LydiaWright</td>
-      <td class="email-output" [routerLink]="['/user']">lydia@test.com</td>
-      <td class="change-password" [routerLink]="['/user']"><a class="change-password-link">change</a></td>
-    </tr>
-    <tr class="output-row">
-      <td [routerLink]="['/user']">Isaac</td>
-      <td [routerLink]="['/user']">Wright</td>
-      <td [routerLink]="['/user']">IsaacWright</td>
-      <td class="email-output" [routerLink]="['/user']">isaac@test.com</td>
-      <td class="change-password" [routerLink]="['/user']"><a class="change-password-link">change</a></td>
     </tr>
   </table>
 </div>

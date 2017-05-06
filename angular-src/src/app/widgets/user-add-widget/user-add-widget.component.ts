@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersApiService } from "../../services/users-api.service"
+import { Router } from "@angular/router"
 import "rxjs/Rx"
 import { FlashMessagesService } from "angular2-flash-messages"
 
@@ -16,7 +17,11 @@ export class UserAddWidgetComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private usersApiService: UsersApiService, private flashMessage: FlashMessagesService) { }
+  constructor(
+    private usersApiService: UsersApiService,
+    private flashMessage: FlashMessagesService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -37,5 +42,6 @@ export class UserAddWidgetComponent implements OnInit {
         this.flashMessage.show(res.message, {cssClass: "alert-failure", timeout: 3000})
       }
     })
+    this.router.navigate(['/users/manage'])
   }
 }

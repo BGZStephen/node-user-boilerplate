@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersApiService } from "../../services/users-api.service"
 
 @Component({
   selector: 'app-users-management-widget',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersManagementWidgetComponent implements OnInit {
 
-  constructor() { }
+  users: Array<object>
+
+  constructor(private usersApiService: UsersApiService) { }
 
   ngOnInit() {
+    this.usersApiService.getAll()
+    .subscribe(res => {
+      this.users = res
+      console.log(this.users)
+    })
   }
 
 }
