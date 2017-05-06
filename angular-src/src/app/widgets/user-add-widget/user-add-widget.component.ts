@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersApiService } from "../../services/users-api.service"
 import "rxjs/Rx"
+import { FlashMessagesService } from "angular2-flash-messages"
 
 @Component({
   selector: 'app-user-add-widget',
@@ -15,12 +16,12 @@ export class UserAddWidgetComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private usersApiService: UsersApiService) { }
+  constructor(private usersApiService: UsersApiService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
   }
 
-  addUser(firstName, lastName, username, email, password) {
+  registerUser(firstName, lastName, username, email, password) {
     let userObject = {
       firstName: firstName,
       lastName: lastName,
@@ -28,9 +29,13 @@ export class UserAddWidgetComponent implements OnInit {
       email: email,
       password: password
     }
-    this.usersApiService.addUser(userObject)
+    this.usersApiService.registerUser(userObject)
     .subscribe(res => {
-      console.log(res)
+      if(res.success) {
+        this.flashMessage.show(res.message, {cssClass: "alert-success", timeout: 3000})
+      } else {
+        this.flashMessage.show(res.message, {cssClass: "alert-failure", timeout: 3000})
+      }
     })
   }
 }

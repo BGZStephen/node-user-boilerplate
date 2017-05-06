@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { router } from "./app.routes"
+import { FlashMessagesModule } from "angular2-flash-messages"
 import { UsersApiService } from "./services/users-api.service"
 
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-
     BrowserModule,
     FormsModule,
     HttpModule,
-    router
+    router,
+    FlashMessagesModule
   ],
   providers: [UsersApiService],
   bootstrap: [AppComponent]

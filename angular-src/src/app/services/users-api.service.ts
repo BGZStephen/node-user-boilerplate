@@ -9,8 +9,8 @@ export class UsersApiService {
 
   port: number = 3002
 
-  addUser(userObject) {
-    return this.http.post("http://localhost:" + this.port + "/users/create", userObject)
+  registerUser(userObject) {
+    return this.http.post("http://localhost:" + this.port + "/users/register", userObject)
     .map(res => res.json())
   }
 

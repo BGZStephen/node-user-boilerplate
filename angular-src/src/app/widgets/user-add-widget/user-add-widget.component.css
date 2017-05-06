@@ -4,7 +4,8 @@
 }
 
 .widget-header {
-  color: #33414e
+  color: #33414e;
+  font-size: 1.2em;
 }
 
 .widget-header-seperator {
@@ -75,6 +76,12 @@
   color: #33414e;
 }
 
+.input-field-warning {
+  color: #B33A3A;
+  margin-top: 10px;
+  font-style: italic;
+}
+
 @media (min-width: 425px) {
   .user-profile-title-container {
     font-size: 1.2em;
@@ -86,4 +93,10 @@
     width: auto;
   }
 
+}
+
+@media (min-width: 768px) {
+  .widget-header {
+    font-size: 1.5em
+  }
 }

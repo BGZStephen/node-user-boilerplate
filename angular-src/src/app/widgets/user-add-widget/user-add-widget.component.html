@@ -7,7 +7,7 @@
         <p class="user-profile-title">First Name:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="Walter" name="firstName" #firstName>
+        <input type="text" class="user-profile-input" placeholder="Walter" name="firstName" #firstName (keyup)="0">
       </div>
     </div>
     <div class="user-profile-row">
@@ -15,7 +15,7 @@
         <p class="user-profile-title">Last Name:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="White" name="lastName" #lastName>
+        <input type="text" class="user-profile-input" placeholder="White" name="lastName" #lastName (keyup)="0">
       </div>
     </div>
     <div class="user-profile-row">
@@ -23,7 +23,7 @@
         <p class="user-profile-title">Username:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="Heisenberg" name="username" #username>
+        <input type="text" class="user-profile-input" placeholder="Heisenberg" name="username" #username (keyup)="0">
       </div>
     </div>
     <div class="user-profile-row">
@@ -31,7 +31,7 @@
         <p class="user-profile-title">Email:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="text" class="user-profile-input" placeholder="heisenberg@gmail.com" name="email" #email>
+        <input type="text" class="user-profile-input" placeholder="heisenberg@gmail.com" name="email" #email (keyup)="0">
       </div>
     </div>
     <div class="user-profile-row">
@@ -39,11 +39,14 @@
         <p class="user-profile-title">Password:</p>
       </div>
       <div class="user-profile-input-container">
-        <input type="password" class="user-profile-input" placeholder="**********" name="password" #password>
+        <input type="password" class="user-profile-input" placeholder="**********" name="password" #password (keyup)="0">
       </div>
     </div>
+    <template ngIf="!firstName.value || !lastName.value || !username.value || !email.value || !password.value">
+      <p class="input-field-warning">All fields are required</p>
+    </template>
     <div class="user-profile-actions-container">
       <button class="user-profile-action-button cancel-button" [routerLink]="['/home']">Cancel</button>
-      <button class="user-profile-action-button save-button" (click)="addUser(firstName.value, lastName.value, username.value, email.value, password.value)">Save</button>
+      <button class="user-profile-action-button save-button" [disabled]="!firstName.value || !lastName.value || !username.value || !email.value || !password.value" (click)="registerUser(firstName.value, lastName.value, username.value, email.value, password.value)">Save</button>
     </div>
 </div>
