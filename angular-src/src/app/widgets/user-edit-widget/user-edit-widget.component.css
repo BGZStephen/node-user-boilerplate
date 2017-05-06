@@ -55,6 +55,8 @@
 }
 
 .user-profile-input {
+  border: none;
+  border-bottom: 2px solid #33414e;
   font-size: 1em;
   margin-left: 10px;
   padding: 5px;
@@ -64,11 +66,6 @@
 .fa-save {
   cursor: pointer;
   padding: 10px;
-}
-
-.fa-pencil {
-  color: #aaa;
-  text-decoration: none;
 }
 
 .fa-pencil:hover {

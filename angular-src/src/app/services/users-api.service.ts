@@ -24,4 +24,9 @@ export class UsersApiService {
     .map(res => res.json())
   }
 
+  updateProfile(userObject) {
+    return this.http.post("http://localhost:" + this.port + "/users/update", userObject)
+    .map(res => res.json())
+  }
+
 }

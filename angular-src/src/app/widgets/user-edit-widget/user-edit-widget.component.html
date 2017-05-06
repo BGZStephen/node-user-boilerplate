@@ -7,10 +7,10 @@
         <p class="user-profile-title">First Name:</p>
       </div>
       <div class="user-profile-output-container">
-        <p class="user-profile-output">{{user.firstName}}</p>
+        <input type="text" class="user-profile-input" placeholder="First name" value="{{user.firstName}}" name="firstName" #firstName>
       </div>
       <div class="user-profile-edit-container">
-        <a class="fa fa-pencil" [routerLink]="['/user/edit', user.userId]"></a>
+        <a class="fa fa-save" (click)="updateProfile({firstName: firstName.value, lastName: lastName.value, username: username.value, email: email.value, userId: user.userId})"></a>
       </div>
     </div>
     <div class="user-profile-row">
@@ -18,10 +18,10 @@
         <p class="user-profile-title">Last Name:</p>
       </div>
       <div class="user-profile-output-container">
-        <p class="user-profile-output">{{user.lastName}}</p>
+        <input type="text" class="user-profile-input" placeholder="Last name" value="{{user.lastName}}" name="lastName" #lastName>
       </div>
       <div class="user-profile-edit-container">
-        <a class="fa fa-pencil" [routerLink]="['/user/edit', user.userId]"></a>
+        <a class="fa fa-save" (click)="updateProfile({firstName: firstName.value, lastName: lastName.value, username: username.value, email: email.value, userId: user.userId})"></a>
       </div>
     </div>
     <div class="user-profile-row">
@@ -29,10 +29,10 @@
         <p class="user-profile-title">Username:</p>
       </div>
       <div class="user-profile-output-container">
-        <p class="user-profile-output">{{user.username}}</p>
+        <input type="text" class="user-profile-input" placeholder="Username" value="{{user.username}}" name="username" #username>
       </div>
       <div class="user-profile-edit-container">
-        <a class="fa fa-pencil" [routerLink]="['/user/edit', user.userId]"></a>
+        <a class="fa fa-save" (click)="updateProfile({firstName: firstName.value, lastName: lastName.value, username: username.value, email: email.value, userId: user.userId})"></a>
       </div>
     </div>
     <div class="user-profile-row">
@@ -40,21 +40,11 @@
         <p class="user-profile-title">Email:</p>
       </div>
       <div class="user-profile-output-container">
-        <p class="user-profile-output">{{user.email}}</p>
+        <input type="text" class="user-profile-input" placeholder="Email" value="{{user.email}}" name="email" #email>
       </div>
       <div class="user-profile-edit-container">
-        <a class="fa fa-pencil" [routerLink]="['/user/edit', user.userId]"></a>
+        <a class="fa fa-save" (click)="updateProfile({firstName: firstName.value, lastName: lastName.value, username: username.value, email: email.value, userId: user.userId})"></a>
       </div>
     </div>
-    <div class="user-profile-row">
-      <div class="user-profile-title-container">
-        <p class="user-profile-title">Password:</p>
-      </div>
-      <div class="user-profile-output-container">
-        <p class="user-profile-output">******</p>
-      </div>
-      <div class="user-profile-edit-container">
-        <a class="fa fa-pencil" [routerLink]="['/user/edit', user.userId]"></a>
-      </div>
-    </div>
+  </div>
 </div>

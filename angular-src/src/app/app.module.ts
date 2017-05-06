@@ -22,6 +22,8 @@ import { UserAddComponent } from './pages/user/user-add.component';
 import { UserAddWidgetComponent } from './widgets/user-add-widget/user-add-widget.component';
 import { UsersDeleteComponent } from './pages/users/users-delete.component';
 import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-delete-widget.component';
+import { UserEditWidgetComponent } from './widgets/user-edit-widget/user-edit-widget.component';
+import { UserEditComponent } from './pages/user/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-
     UserAddComponent,
     UserAddWidgetComponent,
     UsersDeleteComponent,
-    UsersDeleteWidgetComponent
+    UsersDeleteWidgetComponent,
+    UserEditWidgetComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

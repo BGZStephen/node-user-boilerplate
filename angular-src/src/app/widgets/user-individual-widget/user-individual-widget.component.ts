@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router"
 })
 export class UserIndividualWidgetComponent implements OnInit {
 
-  editMode: boolean = false
+  editMode: boolean = true
   editPasswordMode: boolean = false
   user: object;
 
@@ -24,18 +24,9 @@ export class UserIndividualWidgetComponent implements OnInit {
         console.log(this.user)
       })
     })
-
   }
 
   ngOnInit() {
-  }
-
-  toggleEdit() {
-    this.editMode = !this.editMode
-  }
-
-  togglePasswordEdit() {
-    this.editPasswordMode = !this.editPasswordMode
   }
 
 }
