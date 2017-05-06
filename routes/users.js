@@ -140,6 +140,21 @@ router.post("/getByEmail", (req, res, next) => {
   })
 })
 
+router.post("/getById", (req, res, next) => {
+  let userObject = {
+    userId: req.body.userId
+  }
+
+  User.getById(userObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json(callback)
+    } else {
+      res.json({success: false, message: "User not found"})
+    }
+  })
+})
+
 // get by username
 
 router.post("/getByUsername", (req, res, next) => {

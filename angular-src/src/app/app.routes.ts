@@ -9,7 +9,7 @@ import { UserAddComponent } from './pages/user/user-add.component';
 const APP_ROUTES: Routes = [
   {path: "", component: LoginRegisterComponent},
   {path: "home", component: HomeComponent},
-  {path: "user", component: UserComponent},
+  {path: "user/:userId", component: UserComponent},
   {path: "user/add", component: UserAddComponent},
   {path: "users/manage", component: UsersManageComponent},
   {path: "users/delete", component: UsersDeleteComponent},

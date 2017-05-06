@@ -11,11 +11,11 @@
       <td class="password-header">Password</td>
     </tr>
     <tr class="output-row" *ngFor="let user of users">
-      <td [routerLink]="['/user']">{{user.firstName}}</td>
-      <td [routerLink]="['/user']">{{user.lastName}}</td>
-      <td [routerLink]="['/user']">{{user.username}}</td>
-      <td class="email-output" [routerLink]="['/user']">{{user.email}}</td>
-      <td class="change-password" [routerLink]="['/']"><a class="change-password-link">change</a></td>
+      <td [routerLink]="['/user', user.userId]">{{user.firstName}}</td>
+      <td [routerLink]="['/user', user.userId]">{{user.lastName}}</td>
+      <td [routerLink]="['/user', user.userId]">{{user.username}}</td>
+      <td class="email-output" [routerLink]="['/user', user.userId]">{{user.email}}</td>
+      <td class="change-password" [routerLink]="['/user', user.userId]"><a class="change-password-link">change</a></td>
     </tr>
   </table>
 </div>

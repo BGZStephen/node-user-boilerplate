@@ -14,6 +14,11 @@ export class UsersApiService {
     .map(res => res.json())
   }
 
+  getById(userObject) {
+    return this.http.post("http://localhost:" + this.port + "/users/getById", userObject)
+    .map(res => res.json())
+  }
+
   registerUser(userObject) {
     return this.http.post("http://localhost:" + this.port + "/users/register", userObject)
     .map(res => res.json())
