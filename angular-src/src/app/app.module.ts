@@ -18,6 +18,8 @@ import { UserIndividualWidgetComponent } from './widgets/user-individual-widget/
 import { UserComponent } from './pages/user/user.component';
 import { UserAddComponent } from './pages/user/user-add.component';
 import { UserAddWidgetComponent } from './widgets/user-add-widget/user-add-widget.component';
+import { UsersDeleteComponent } from './pages/users/users-delete.component';
+import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-delete-widget.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UserAddWidgetComponent } from './widgets/user-add-widget/user-add-widge
     UserIndividualWidgetComponent,
     UserComponent,
     UserAddComponent,
-    UserAddWidgetComponent
+    UserAddWidgetComponent,
+    UsersDeleteComponent,
+    UsersDeleteWidgetComponent
   ],
   imports: [
     BrowserModule,
