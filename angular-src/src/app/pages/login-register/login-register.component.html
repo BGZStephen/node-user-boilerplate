@@ -24,20 +24,20 @@
         <h2 class="form-header">Sign up to get access.</h2>
         <form class="register-form">
           <div class="form-row">
-            <input type="text" class="form-input first-name-input" placeholder="First Name">
-            <input type="text" class="form-input last-name-input" placeholder="Last Name">
+            <input type="text" class="form-input first-name-input" placeholder="First Name" #regFirstName>
+            <input type="text" class="form-input last-name-input" placeholder="Last Name" #regLastName>
           </div>
           <div class="form-row">
-            <input type="text" class="form-input" placeholder="Username">
+            <input type="text" class="form-input" placeholder="Username" #regUsername>
           </div>
           <div class="form-row">
-            <input type="text" class="form-input" placeholder="Email">
+            <input type="text" class="form-input" placeholder="Email" #regEmail>
           </div>
           <div class="form-row">
-            <input type="password" class="form-input" placeholder="Password">
+            <input type="password" class="form-input" placeholder="Password" #regPassword>
           </div>
           <div class="form-row">
-            <input type="submit" class="form-submit" value="GET STARTED">
+            <input type="submit" class="form-submit" value="GET STARTED" (click)="register({firstName: regFirstName.value, lastName: regLastName.value, username: regUsername.value, email: regEmail.value, password: regPassword.value})">
           </div>
         </form>
       </div>

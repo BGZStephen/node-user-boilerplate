@@ -42,4 +42,16 @@ export class LoginRegisterComponent implements OnInit {
     })
   }
 
+  register(userObject) {
+    this.usersApiService.register(userObject)
+    .subscribe(res => {
+      if(res.success) {
+        this.flashMessage.show("Registration Successful", {cssClass: "alert-success", timeout: 3000})
+        this.toggleForm(0)
+      } else {
+        this.flashMessage.show(res.message, {cssClass: "alert-failure", timeout: 3000})
+      }
+    })
+  }
+
 }

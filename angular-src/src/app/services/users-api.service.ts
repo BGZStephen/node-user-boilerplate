@@ -37,7 +37,7 @@ export class UsersApiService {
     this.authToken = "";
   }
 
-  registerUser(userObject) {
+  register(userObject) {
     return this.http.post("http://localhost:" + this.port + "/users/register", userObject)
     .map(res => res.json())
   }
