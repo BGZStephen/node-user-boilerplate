@@ -10,13 +10,13 @@
         <h2 class="form-header">Head on in.</h2>
         <form class="login-form">
           <div class="form-row">
-            <input type="text" class="form-input" placeholder="Email Address">
+            <input type="text" class="form-input" placeholder="Email" #email (keyup)="0">
           </div>
           <div class="form-row">
-            <input type="password" class="form-input" placeholder="Passwrd">
+            <input type="password" class="form-input" placeholder="Password" #password (keyup)="0">
           </div>
           <div class="form-row">
-            <input type="submit" class="form-submit" value="LOG IN" [routerLink]="['home']">
+            <input type="submit" class="form-submit" value="LOG IN" (click)="login({email: email.value, password: password.value})">
           </div>
         </form>
       </div>
@@ -41,6 +41,7 @@
           </div>
         </form>
       </div>
+      <flash-messages></flash-messages>
     </div>
   </div>
 </div>

@@ -24,16 +24,16 @@ router.post("/adminupdatepassword", (req, res, next) => {
   })
 })
 
-// update password
+// authanticate
 router.post("/authenticate", (req, res, next) => {
 
   // newUser object to submit
   let userObject = {
-    username: req.body.username,
+    email: req.body.email,
     queryPassword: req.body.password,
   }
 
-  User.getByUsername({username: userObject.username}, (err, callback) => {
+  User.getByEmail({email: userObject.email}, (err, callback) => {
     if(err) throw(err)
     if(callback) {
       userObject.storedHash = callback.password
@@ -41,13 +41,27 @@ router.post("/authenticate", (req, res, next) => {
       User.comparePassword(userObject, (err, isMatch) => {
         if(err) throw(err)
         if(isMatch) {
-          res.json({success: true, message: "Authentication successful"})
+
+          const token = jwt.sign(callback, config.secret, {
+            expiresIn: 604800 // 1 week
+          });
+
+          res.json({
+            success: true,
+            message: "Authentication successful",
+            token: "JWT" + token,
+            user: {
+              userId: callback.userId,
+              email: callback.email,
+              username: callback.username
+            }
+          })
         } else {
-          res.json({success: false, message: "Incorrect username or password"})
+          res.json({success: false, message: "Incorrect email or password"})
         }
       })
     } else {
-      res.json({success: false, message: "Incorrect username or password"})
+      res.json({success: false, message: "Incorrect email or password"})
     }
   })
 })

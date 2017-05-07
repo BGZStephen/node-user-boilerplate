@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersApiService } from "../../services/users-api.service"
+import { Router } from "@angular/router"
+import { FlashMessagesService } from "angular2-flash-messages"
 
 @Component({
   selector: 'app-login-register',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRegisterComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    private usersApiService: UsersApiService,
+    private router: Router,
+    private flashMessage: FlashMessagesService
+  ) {}
 
   ngOnInit() {
   }
@@ -21,6 +28,18 @@ export class LoginRegisterComponent implements OnInit {
     }
     forms[formIndex].classList.add("form-container-visible")
     options[formIndex].classList.add("forms-selector-option-active")
+  }
+
+  login(userObject) {
+    this.usersApiService.authenticate(userObject)
+    .subscribe(res => {
+      if(res.success) {
+        this.usersApiService.storeToken(res)
+        this.router.navigate(['/home'])
+      } else {
+        this.flashMessage.show(res.message, {cssClass: "alert-failure", timeout: 3000})
+      }
+    })
   }
 
 }
