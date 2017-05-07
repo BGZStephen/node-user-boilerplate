@@ -11,7 +11,7 @@ router.post("/adminupdatepassword", (req, res, next) => {
   // newUser object to submit
   let userObject = {
     userId: req.body.userId,
-    password: req.body.password
+    newPassword: req.body.password
   }
 
   User.updatePassword(userObject, (err, callback) => {

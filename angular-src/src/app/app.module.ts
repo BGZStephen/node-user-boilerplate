@@ -24,6 +24,8 @@ import { UsersDeleteComponent } from './pages/users/users-delete.component';
 import { UsersDeleteWidgetComponent } from './widgets/users-delete-widget/users-delete-widget.component';
 import { UserEditWidgetComponent } from './widgets/user-edit-widget/user-edit-widget.component';
 import { UserEditComponent } from './pages/user/user-edit.component';
+import { UserPasswordEditWidgetComponent } from './widgets/user-password-edit-widget/user-password-edit-widget.component';
+import { UserUpdatePasswordComponent } from './pages/user/user-update-password.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { UserEditComponent } from './pages/user/user-edit.component';
     UsersDeleteComponent,
     UsersDeleteWidgetComponent,
     UserEditWidgetComponent,
-    UserEditComponent
+    UserEditComponent,
+    UserPasswordEditWidgetComponent,
+    UserUpdatePasswordComponent
   ],
   imports: [
     BrowserModule,
