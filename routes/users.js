@@ -5,6 +5,25 @@ const config = require('../config/database');
 const User = require('../models/user');
 const Counter = require('../models/counter');
 
+// admin update password
+router.post("/adminupdatepassword", (req, res, next) => {
+
+  // newUser object to submit
+  let userObject = {
+    userId: req.body.userId,
+    password: req.body.password
+  }
+
+  User.updatePassword(userObject, (err, callback) => {
+    if(err) throw(err)
+    if(callback) {
+      res.json({success: true, message: "Password Updated"})
+    } else {
+      res.json({success: false, message: "Failed to update password"})
+    }
+  })
+})
+
 // update password
 router.post("/authenticate", (req, res, next) => {
 

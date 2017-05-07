@@ -41,7 +41,7 @@ export class UserAddWidgetComponent implements OnInit {
       } else {
         this.flashMessage.show(res.message, {cssClass: "alert-failure", timeout: 3000})
       }
+      this.router.navigate(['/users/manage'])
     })
-    this.router.navigate(['/users/manage'])
   }
 }
