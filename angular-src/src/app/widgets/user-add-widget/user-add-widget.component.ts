@@ -34,7 +34,7 @@ export class UserAddWidgetComponent implements OnInit {
       email: email,
       password: password
     }
-    this.usersApiService.registerUser(userObject)
+    this.usersApiService.register(userObject)
     .subscribe(res => {
       if(res.success) {
         this.flashMessage.show(res.message, {cssClass: "alert-success", timeout: 3000})

@@ -21,6 +21,11 @@ export class UsersApiService {
     .map(res => res.json())
   }
 
+  deleteUser(userObject) {
+    return this.http.post("http://localhost:" + this.port + "/users/deleteOne", userObject)
+    .map(res => res.json())
+  }
+
   getAll() {
     return this.http.post("http://localhost:" + this.port + "/users/getAll", {})
     .map(res => res.json())

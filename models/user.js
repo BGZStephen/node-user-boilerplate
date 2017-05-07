@@ -46,7 +46,8 @@ module.exports.deleteAll = function(userObject, callback){
 }
 
 module.exports.deleteOne = function(userObject, callback){
-  User.findOne(userObject, callback).remove().exec()
+  User.findOne(userObject).remove().exec()
+  callback()
 }
 
 module.exports.getAll = function(userObject, callback){

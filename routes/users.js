@@ -129,7 +129,7 @@ router.post("/deleteOne", (req, res, next) => {
     if(callback != null) {
       User.deleteOne(userObject, (err, callback) => {
         if(err) throw(err)
-        if(callback == null) {
+        if(callback) {
           res.json({success: true, message: "User deleted"})
         } else {
           res.json({success: false, message: "Something went wrong, user not deleted"})
