@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersApiService } from '../../services/users-api.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() {
+  user: object;
+
+  constructor(
+    private usersApiService: UsersApiService
+  ) {
     // on page load set menu visibility
     this.setMenuStyle()
+
+    this.usersApiService.getCurrentUser()
+    .subscribe(res => {
+      this.user = res;
+    })
   }
 
   // main visibility setting for menu

@@ -5,14 +5,13 @@
   </div>
   <div class="app-navigation" (window:resize)="setMenuStyle('resize')" [ngStyle]="menuStyle()">
     <div class="profile-container">
-      <div class="profile-row">
+      <!-- <div class="profile-row">
         <a class="fa fa-info"></a>
         <img class="profile-image" src="http://placehold.it/100x100">
         <a class="fa fa-envelope"></a>
-      </div>
-      <div class="profile-row description-row">
-        <p class="profile-username">John Doe</p>
-        <p class="profile-job-title">Web Developer</p>
+      </div> -->
+      <div class="profile-row description-row" *ngIf="user">
+        <p class="profile-username">Welcome, {{user.firstName}}</p>
       </div>
     </div>
     <div class="menu-container">
@@ -38,7 +37,7 @@
               </div>
             </li>
             <li class="second-level-item">
-              <div class="second-level-item-content" [routerLink]="['/user/add']">
+              <div class="second-level-item-content" [routerLink]="['/users/add']">
                 <a class="fa fa-plus"></a>
                 <p class="second-level-item-header">Add</p>
               </div>
@@ -47,27 +46,6 @@
               <div class="second-level-item-content" [routerLink]="['/users/delete']">
                 <a class="fa fa-ban"></a>
                 <p class="second-level-item-header">Delete</p>
-              </div>
-            </li>
-            <li class="second-level-item">
-              <div class="second-level-item-content">
-                <a class="fa fa-pencil-square-o"></a>
-                <p class="second-level-item-header">Update</p>
-              </div>
-            </li>
-          </ul>
-        </li>
-        <li class="top-level-item" (click)="setActiveSubMenu(1)">
-          <div class="top-level-item-content">
-            <a class="fa fa-lock"></a>
-            <p class="top-level-item-header">Admin</p>
-            <a class="fa fa-caret-down"></a>
-          </div>
-          <ul class="second-level-menu" [ngStyle]="subMenuStyle(1)">
-            <li class="second-level-item">
-              <div class="second-level-item-content">
-                <a class="fa fa-database"></a>
-                <p class="second-level-item-header">Database</p>
               </div>
             </li>
           </ul>

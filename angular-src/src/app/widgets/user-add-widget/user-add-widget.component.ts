@@ -11,12 +11,6 @@ import { FlashMessagesService } from "angular2-flash-messages"
 })
 export class UserAddWidgetComponent implements OnInit {
 
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  password: string;
-
   constructor(
     private usersApiService: UsersApiService,
     private flashMessage: FlashMessagesService,

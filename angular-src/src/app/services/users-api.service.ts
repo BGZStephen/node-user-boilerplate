@@ -36,6 +36,12 @@ export class UsersApiService {
     .map(res => res.json())
   }
 
+  getCurrentUser() {
+    let userObject = JSON.parse(localStorage.getItem('user'))
+    return this.http.post("http://localhost:" + this.port + "/users/getById", userObject)
+    .map(res => res.json())
+  }
+
   logout() {
     localStorage.clear()
     this.user = "";

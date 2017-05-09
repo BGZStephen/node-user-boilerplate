@@ -14,7 +14,7 @@ const APP_ROUTES: Routes = [
   {path: "user/:userId", component: UserComponent},
   {path: "user/edit/:userId", component: UserEditComponent},
   {path: "user/editpassword/:userId", component: UserUpdatePasswordComponent},
-  {path: "user/add", component: UserAddComponent},
+  {path: "users/add", component: UserAddComponent},
   {path: "users/manage", component: UsersManageComponent},
   {path: "users/delete", component: UsersDeleteComponent},
 ]
