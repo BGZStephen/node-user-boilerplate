@@ -1,4 +1,4 @@
 module.exports = {
-  database: "mongodb://localhost:27017/node-user-boilerplate",
+  database: "mongodb://stephen:password@ds133251.mlab.com:33251/heroku_kb5161d8",
   secret: "nodeUserBoilerplate"
 }

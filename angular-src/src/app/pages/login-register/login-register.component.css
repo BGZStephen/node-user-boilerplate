@@ -12,13 +12,12 @@
   background: #33414e;
   border-radius: 5px;
   color: white;
-  max-width: 100%;
+  width: 100%;
   padding: 20px;
   position:relative;
   -webkit-box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
      -moz-box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
           box-shadow:0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2) inset;
-  width: 525px;
 }
 
 .form-container {
@@ -133,6 +132,12 @@
 .first-name-input,
 .last-name-input {
   width: 100%;
+}
+
+@media (min-width: 525px) {
+  .forms-container {
+    width: 525px;
+  }
 }
 
 @media (min-width: 768px) {
