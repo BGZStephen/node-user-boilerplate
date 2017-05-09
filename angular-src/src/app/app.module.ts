@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { router } from "./app.routes"
 import { FlashMessagesModule } from "angular2-flash-messages"
 import { UsersApiService } from "./services/users-api.service"
+import { AuthGuard } from './guards/auth.guard'
 
 import { AppComponent } from './app.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
@@ -57,7 +58,7 @@ import { UserUpdatePasswordComponent } from './pages/user/user-update-password.c
     router,
     FlashMessagesModule
   ],
-  providers: [UsersApiService],
+  providers: [UsersApiService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

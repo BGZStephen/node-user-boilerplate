@@ -1,4 +1,6 @@
 import { Routes, RouterModule } from "@angular/router"
+import { AuthGuard } from './guards/auth.guard'
+
 import { HomeComponent } from './pages/home/home.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { UsersManageComponent } from "./pages/users/users-manage.component"
@@ -10,13 +12,13 @@ import { UserUpdatePasswordComponent } from './pages/user/user-update-password.c
 
 const APP_ROUTES: Routes = [
   {path: "", component: LoginRegisterComponent},
-  {path: "home", component: HomeComponent},
-  {path: "user/:userId", component: UserComponent},
-  {path: "user/edit/:userId", component: UserEditComponent},
-  {path: "user/editpassword/:userId", component: UserUpdatePasswordComponent},
-  {path: "users/add", component: UserAddComponent},
-  {path: "users/manage", component: UsersManageComponent},
-  {path: "users/delete", component: UsersDeleteComponent},
+  {path: "home", component: HomeComponent, canActivate:[AuthGuard]},
+  {path: "user/:userId", component: UserComponent, canActivate:[AuthGuard]},
+  {path: "user/edit/:userId", component: UserEditComponent, canActivate:[AuthGuard]},
+  {path: "user/editpassword/:userId", component: UserUpdatePasswordComponent, canActivate:[AuthGuard]},
+  {path: "users/add", component: UserAddComponent, canActivate:[AuthGuard]},
+  {path: "users/manage", component: UsersManageComponent, canActivate:[AuthGuard]},
+  {path: "users/delete", component: UsersDeleteComponent, canActivate:[AuthGuard]},
 ]
 
 export const router = RouterModule.forRoot(APP_ROUTES)
